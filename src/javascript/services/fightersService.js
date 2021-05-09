@@ -3,16 +3,23 @@ import {callApi} from "../helpers/apiHelper";
 class FighterService {
     async getFighters() {
         try {
-            const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
+            const endpoint = 'fighters.json';
             const apiResult = await callApi(endpoint, 'GET');
 
-            return JSON.parse(atob(apiResult.content));
+            return apiResult;
         } catch (error) {
             throw error;
         }
     }
-    async getFighterDetails(_id){
+    async getFighterDetails(id){
+        try {
+            const endpoint = `details/fighter/${id}.json`;
+            const apiResult = await callApi(endpoint, 'GET');
 
+            return apiResult;
+        } catch (error) {
+            throw error;
+        }
     }
 }
 

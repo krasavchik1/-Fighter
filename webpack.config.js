@@ -6,7 +6,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist/'
-    },module: {
+    },
+    module: {
         rules: [
             {
                 test: /\.m?js$/,
@@ -24,6 +25,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url-loader'
             }
         ]
     },
@@ -31,4 +36,5 @@ module.exports = {
     devServer: {
         inline: true
     },
+    devtool: "source-map"
 }
