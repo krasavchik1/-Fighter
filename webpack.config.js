@@ -29,6 +29,13 @@ module.exports = {
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader'
+            },
+            {
+                test: /\.(png|jpe?g|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/[name].[ext]',
+                }
             }
         ]
     },
